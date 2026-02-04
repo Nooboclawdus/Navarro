@@ -1284,6 +1284,24 @@ def main():
     else:
         usernames = [args.username.strip().lstrip("@")]
     
+    # Validate and filter usernames
+    import re
+    valid_usernames = []
+    username_pattern = re.compile(r'^[a-zA-Z0-9_.\-]{1,64}$')
+    for u in usernames:
+        if not u:
+            continue
+        if not username_pattern.match(u):
+            print(f"⚠️  Skipping invalid username: '{u}' (only alphanumeric, underscore, dot, hyphen allowed, max 64 chars)")
+            continue
+        valid_usernames.append(u)
+    
+    if not valid_usernames:
+        print("❌ No valid usernames to check")
+        sys.exit(1)
+    
+    usernames = valid_usernames
+
     # Check each username
     for idx, username in enumerate(usernames):
         if len(usernames) > 1:
