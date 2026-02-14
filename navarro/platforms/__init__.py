@@ -5,14 +5,22 @@ from navarro.core import PlatformChecker, RateLimiter, SessionManager
 
 # Import all platform checkers
 from .github import GitHubChecker
+from .gitlab import GitLabChecker
 from .reddit import RedditChecker
 from .instagram import InstagramChecker
+from .tiktok import TikTokChecker
+from .linkedin import LinkedInChecker
+from .pastebin import PastebinChecker
 
 # Platform registry - maps display names to checker classes
 PLATFORM_REGISTRY: Dict[str, Type[PlatformChecker]] = {
     "GitHub": GitHubChecker,
+    "GitLab": GitLabChecker,
     "Reddit": RedditChecker,
     "Instagram": InstagramChecker,
+    "TikTok": TikTokChecker,
+    "LinkedIn": LinkedInChecker,
+    "Pastebin": PastebinChecker,
     # More platforms will be added as they're migrated
 }
 
