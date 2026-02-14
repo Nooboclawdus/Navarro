@@ -11,6 +11,15 @@ from .instagram import InstagramChecker
 from .tiktok import TikTokChecker
 from .linkedin import LinkedInChecker
 from .pastebin import PastebinChecker
+from .telegram import TelegramChecker
+from .snapchat import SnapchatChecker
+from .strava import StravaChecker
+from .threads import ThreadsChecker
+from .mastodon import MastodonChecker
+from .bluesky import BlueskyChecker
+from .spotify import SpotifyChecker
+from .soundcloud import SoundCloudChecker
+from .youtube import YouTubeChecker
 
 # Platform registry - maps display names to checker classes
 PLATFORM_REGISTRY: Dict[str, Type[PlatformChecker]] = {
@@ -21,6 +30,15 @@ PLATFORM_REGISTRY: Dict[str, Type[PlatformChecker]] = {
     "TikTok": TikTokChecker,
     "LinkedIn": LinkedInChecker,
     "Pastebin": PastebinChecker,
+    "Telegram": TelegramChecker,
+    "Snapchat": SnapchatChecker,
+    "Strava": StravaChecker,
+    "Threads": ThreadsChecker,
+    "Mastodon": MastodonChecker,
+    "Bluesky": BlueskyChecker,
+    "Spotify": SpotifyChecker,
+    "SoundCloud": SoundCloudChecker,
+    "YouTube": YouTubeChecker,
     # More platforms will be added as they're migrated
 }
 
