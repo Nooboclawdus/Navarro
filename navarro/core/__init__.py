@@ -1,6 +1,6 @@
 """Core components for Navarro."""
 from .enums import CheckResult
-from .base import PlatformChecker
+from .base import PlatformChecker, validate_username
 from .rate_limiter import RateLimiter
 from .session_manager import SessionManager
 
@@ -9,4 +9,5 @@ __all__ = [
     'PlatformChecker',
     'RateLimiter',
     'SessionManager',
+    'validate_username',
 ]

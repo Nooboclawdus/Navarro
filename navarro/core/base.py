@@ -1,10 +1,29 @@
 """Base class for platform checkers."""
 from abc import ABC, abstractmethod
-from typing import List, Optional
+from typing import List, Optional, Tuple
+import re
 import time
 import requests
 
 from .enums import CheckResult
+
+
+# Username validation pattern (most platforms)
+USERNAME_PATTERN = re.compile(r'^[a-zA-Z0-9_.\-]{1,64}$')
+
+
+def validate_username(username: str) -> Tuple[bool, str]:
+    """
+    Validate username format.
+    Returns (is_valid, error_message).
+    """
+    if not username:
+        return False, "Username cannot be empty"
+    if len(username) > 64:
+        return False, "Username too long (max 64 characters)"
+    if not USERNAME_PATTERN.match(username):
+        return False, "Username contains invalid characters (allowed: a-z, A-Z, 0-9, _, ., -)"
+    return True, ""
 
 
 class PlatformChecker(ABC):
@@ -100,6 +119,11 @@ class PlatformChecker(ABC):
         Main check method - handles the full flow.
         Subclasses rarely need to override this.
         """
+        # Validate username
+        is_valid, _ = validate_username(username)
+        if not is_valid:
+            return CheckResult.UNKNOWN_ERROR
+        
         # Wait if rate limited
         wait_time = self.rate_limiter.should_wait(self.platform_key)
         if wait_time > 0:

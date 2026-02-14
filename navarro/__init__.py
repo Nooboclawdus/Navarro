@@ -9,6 +9,7 @@ from navarro.core import (
     PlatformChecker,
     RateLimiter,
     SessionManager,
+    validate_username,
 )
 from navarro.platforms import (
     get_platform_checker,
@@ -17,13 +18,14 @@ from navarro.platforms import (
     PLATFORM_REGISTRY,
 )
 
-__version__ = "2.0.0"
+__version__ = "2.0.1"
 __all__ = [
     # Core
     'CheckResult',
     'PlatformChecker',
     'RateLimiter',
     'SessionManager',
+    'validate_username',
     # Platforms
     'get_platform_checker',
     'get_all_checkers',
