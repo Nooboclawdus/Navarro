@@ -20,15 +20,28 @@ from .bluesky import BlueskyChecker
 from .spotify import SpotifyChecker
 from .soundcloud import SoundCloudChecker
 from .youtube import YouTubeChecker
+from .medium import MediumChecker
+from .chessdotcom import ChessDotComChecker
+from .vk import VKChecker
+from .steam import SteamChecker
+from .deviantart import DeviantArtChecker
+from .vimeo import VimeoChecker
+from .keybase import KeybaseChecker
+from .linktree import LinktreeChecker
+from .pinterest import PinterestChecker
+from .facebook import FacebookChecker
 
 # Platform registry - maps display names to checker classes
+# All 26 platforms migrated (excluding deprecated/removed ones)
 PLATFORM_REGISTRY: Dict[str, Type[PlatformChecker]] = {
     "GitHub": GitHubChecker,
     "GitLab": GitLabChecker,
     "Reddit": RedditChecker,
     "Instagram": InstagramChecker,
+    "Facebook": FacebookChecker,
     "TikTok": TikTokChecker,
     "LinkedIn": LinkedInChecker,
+    "Pinterest": PinterestChecker,
     "Pastebin": PastebinChecker,
     "Telegram": TelegramChecker,
     "Snapchat": SnapchatChecker,
@@ -39,7 +52,14 @@ PLATFORM_REGISTRY: Dict[str, Type[PlatformChecker]] = {
     "Spotify": SpotifyChecker,
     "SoundCloud": SoundCloudChecker,
     "YouTube": YouTubeChecker,
-    # More platforms will be added as they're migrated
+    "Medium": MediumChecker,
+    "Chess.com": ChessDotComChecker,
+    "Keybase": KeybaseChecker,
+    "Linktree": LinktreeChecker,
+    "VK": VKChecker,
+    "Steam": SteamChecker,
+    "DeviantArt": DeviantArtChecker,
+    "Vimeo": VimeoChecker,
 }
 
 
