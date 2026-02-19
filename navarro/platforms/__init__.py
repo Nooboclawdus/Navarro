@@ -30,9 +30,21 @@ from .keybase import KeybaseChecker
 from .linktree import LinktreeChecker
 from .pinterest import PinterestChecker
 from .facebook import FacebookChecker
+from .rumble import RumbleChecker
+from .bitchute import BitChuteChecker
+from .gab import GabChecker
+from .truthsocial import TruthSocialChecker
+from .gettr import GettrChecker
+from .researchgate import ResearchGateChecker
+from .academia import AcademiaChecker
+from .behance import BehanceChecker
+from .dribbble import DribbbleChecker
+from .twitter import TwitterChecker
+from .hackerone import HackerOneChecker
+from .npm import NpmChecker
 
 # Platform registry - maps display names to checker classes
-# All 26 platforms migrated (excluding deprecated/removed ones)
+# 38 platforms (35 existing + 3 new: Twitter/X, HackerOne, npm)
 PLATFORM_REGISTRY: Dict[str, Type[PlatformChecker]] = {
     "GitHub": GitHubChecker,
     "GitLab": GitLabChecker,
@@ -60,6 +72,18 @@ PLATFORM_REGISTRY: Dict[str, Type[PlatformChecker]] = {
     "Steam": SteamChecker,
     "DeviantArt": DeviantArtChecker,
     "Vimeo": VimeoChecker,
+    "Rumble": RumbleChecker,
+    "BitChute": BitChuteChecker,
+    "Gab": GabChecker,
+    "Truth Social": TruthSocialChecker,
+    "Gettr": GettrChecker,
+    "ResearchGate": ResearchGateChecker,
+    "Academia.edu": AcademiaChecker,
+    "Behance": BehanceChecker,
+    "Dribbble": DribbbleChecker,
+    "Twitter/X": TwitterChecker,
+    "HackerOne": HackerOneChecker,
+    "npm": NpmChecker,
 }
 
 
