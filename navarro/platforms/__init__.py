@@ -39,9 +39,12 @@ from .researchgate import ResearchGateChecker
 from .academia import AcademiaChecker
 from .behance import BehanceChecker
 from .dribbble import DribbbleChecker
+from .twitter import TwitterChecker
+from .hackerone import HackerOneChecker
+from .npm import NpmChecker
 
 # Platform registry - maps display names to checker classes
-# 35 platforms (26 original + 9 new: alt-tech, academic, creative)
+# 38 platforms (35 existing + 3 new: Twitter/X, HackerOne, npm)
 PLATFORM_REGISTRY: Dict[str, Type[PlatformChecker]] = {
     "GitHub": GitHubChecker,
     "GitLab": GitLabChecker,
@@ -78,6 +81,9 @@ PLATFORM_REGISTRY: Dict[str, Type[PlatformChecker]] = {
     "Academia.edu": AcademiaChecker,
     "Behance": BehanceChecker,
     "Dribbble": DribbbleChecker,
+    "Twitter/X": TwitterChecker,
+    "HackerOne": HackerOneChecker,
+    "npm": NpmChecker,
 }
 
 
